@@ -11,6 +11,7 @@ var users = [
   { username: "bill", password: "5678" }
 ];
 var currentUser = [];
+
 // set view engine:
 
 app.engine("mustache", mustacheExpress());
@@ -47,20 +48,20 @@ app.post("/login", function(req, res) {
   }
 
   var requestingUser = req.body;
-  var userRecord;
+  var userDetails;
   users.forEach(function(item) {
     if (item.username === requestingUser.username) {
-      userRecord = item;
+      userDetails = item;
       currentUser = item.username;
     }
   });
 
-  if (!userRecord) {
+  if (!userDetails) {
     return res.redirect("/login");
   }
 
-  if (requestingUser.password === userRecord.password) {
-    req.session.user = userRecord;
+  if (requestingUser.password === userDetails.password) {
+    req.session.user = userDetails;
 
     return res.redirect("/");
   } else {

@@ -1,5 +1,5 @@
 module.exports = {
-  secret: "Lemon Fuschia Camino",
+  secret: "Martial Carrion Pickle Terrarium",
   resave: true,
   saveUnitialized: true,
   cookie: { maxAge: 900000 }
